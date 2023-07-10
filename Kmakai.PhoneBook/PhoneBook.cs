@@ -6,10 +6,10 @@ namespace Kmakai.PhoneBook;
 
 public class PhoneBook
 {
-    private bool isRunning = true;
+    private bool IsRunning = true;
     public void Start()
     {
-        while (isRunning)
+        while (IsRunning)
         {
             var option = AnsiConsole.Prompt(
                          new SelectionPrompt<Menu>()
@@ -35,7 +35,7 @@ public class PhoneBook
                     ContactService.DeleteContact();
                     break;
                 case Menu.Exit:
-                    isRunning = false;
+                    IsRunning = false;
                     break;
             }
         }
