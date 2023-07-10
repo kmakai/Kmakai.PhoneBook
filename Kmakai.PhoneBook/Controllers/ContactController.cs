@@ -8,11 +8,11 @@ public class ContactController
     public static void AddContact(Contact contact)
     {
         using var db = new AppDbContext();
-        db.Contacts.Add(contact);
+        db.Add(contact);
         db.SaveChanges();
     }
 
-    public static Contact GetContact(int id)
+    public static Contact GetContactById(int id)
     {
         using var db = new AppDbContext();
         var contact = db.Contacts.SingleOrDefault(x => x.Id == id);      
@@ -32,7 +32,7 @@ public class ContactController
         db.SaveChanges();
     }
 
-    public static void DeleteContact(int id)
+    public static void DeleteContactById(int id)
     {
         using var db = new AppDbContext();
         var contact = db.Contacts.SingleOrDefault(x => x.Id == id);
