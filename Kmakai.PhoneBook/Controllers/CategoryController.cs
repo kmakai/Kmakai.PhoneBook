@@ -1,11 +1,6 @@
 ﻿using Kmakai.PhoneBook.Data;
 using Kmakai.PhoneBook.Models;
 using Spectre.Console;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kmakai.PhoneBook.Controllers;
 

@@ -15,14 +15,14 @@ public class PhoneBook
                          new SelectionPrompt<Menu>()
                          .Title("What would you like to do?")
                          .PageSize(10)
-                         .AddChoices(Menu.AddContact, Menu.getContacts, Menu.GetContact, Menu.UpdateContact, Menu.DeleteContact, Menu.Exit));
+                         .AddChoices(Menu.AddContact, Menu.GetContacts, Menu.GetContact, Menu.UpdateContact, Menu.DeleteContact, Menu.Exit));
 
             switch (option)
             {
                 case Menu.AddContact:
                     ContactService.CreateContact();
                     break;
-                case Menu.getContacts:
+                case Menu.GetContacts:
                     ContactService.GetContacts();
                     break;
                 case Menu.GetContact:
@@ -47,7 +47,7 @@ public class PhoneBook
 enum Menu
 {
     AddContact,
-    getContacts,
+    GetContacts,
     GetContact,
     UpdateContact,
     DeleteContact,

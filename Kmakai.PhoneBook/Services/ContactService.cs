@@ -12,9 +12,15 @@ public class ContactService
     {
         Contact contact = new Contact();
 
-        contact.Name = AnsiConsole.Ask<string>("Enter contact name:");
-        contact.PhoneNumber = AnsiConsole.Ask<string>("Enter contact phone number:");
-        contact.Email = AnsiConsole.Ask<string>("Enter contact email:");
+        var name = inputValidation.GetAndValidateName();
+
+        var phoneNumber = inputValidation.GetAndValidateNumber();
+
+        var email = inputValidation.GetAndValidateEmail();
+
+        contact.Name = name;
+        contact.PhoneNumber = phoneNumber;
+        contact.Email = email;
         contact.CategoryId = CategoryController.GetCategoryIdByName();
 
         ContactController.AddContact(contact);
@@ -70,9 +76,9 @@ public class ContactService
             return;
         }
 
-        contact.Name = AnsiConsole.Confirm("Update contact name?") ? AnsiConsole.Ask<string>("Enter new contact name:") : contact.Name;
-        contact.PhoneNumber = AnsiConsole.Confirm("Update contact phone number?") ? AnsiConsole.Ask<string>("Enter new contact phone number:") : contact.PhoneNumber;
-        contact.Email = AnsiConsole.Confirm("Update contact email?") ? AnsiConsole.Ask<string>("Enter new contact email:") : contact.Email;
+        contact.Name = AnsiConsole.Confirm("Update contact name?") ? inputValidation.GetAndValidateName() : contact.Name;
+        contact.PhoneNumber = AnsiConsole.Confirm("Update contact phone number?") ? inputValidation.GetAndValidateNumber() : contact.PhoneNumber;
+        contact.Email = AnsiConsole.Confirm("Update contact email?") ? inputValidation.GetAndValidateEmail() : contact.Email;
         contact.CategoryId = AnsiConsole.Confirm("Update contact category?") ? CategoryController.GetCategoryIdByName() : contact.CategoryId;
 
         ContactController.UpdateContact(contact);
@@ -124,6 +130,6 @@ public class ContactService
         }
 
         AnsiConsole.Write(table);
-        
+
     }
 }
